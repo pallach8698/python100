@@ -1,0 +1,9 @@
+{
+  "name": "python-100-tasks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "100 мини-программ Python — тренажёр переписывания кода",
+  "scripts": {
+    "dev": "node server.js"
+  }
+}
