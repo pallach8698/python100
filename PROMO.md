@@ -19,6 +19,7 @@
 > Метод простой: выбрал задачу → набрал код руками → запустил → исправил опечатки → изменил и воспроизвёл по памяти. Прогресс сохраняется в браузере, у каждой задачи есть прямая ссылка — удобно давать ученикам.
 >
 > Сайт: https://pallach8698.github.io/python100/
+> Есть офлайн-приложение для Windows (12 МБ, без установки) — кнопка «Скачать для Windows» на сайте.
 > А для тех, кто хочет системный курс с автопроверкой — мой офлайн-курс на 30 дней для Windows и Android: https://pallach8698.github.io/python30-site/
 >
 > Всё бесплатно, без регистрации и рекламы. Код открыт: github.com/pallach8698/python100
@@ -43,7 +44,7 @@
 >
 > https://pallach8698.github.io/python100/ (the site is in Russian, but all code is plain Python and readable regardless)
 >
-> There's also a companion offline 30-day course for Windows/Android: https://pallach8698.github.io/python30-site/
+> There's also a free offline Windows app (12 MB, no install — "Скачать для Windows" button on the site), and a companion offline 30-day course for Windows/Android: https://pallach8698.github.io/python30-site/
 >
 > Feedback welcome!
 
@@ -62,6 +63,7 @@
 > Схема простая: перепечатываешь код → запускаешь → чинишь свои опечатки → меняешь правила под себя. Руки запоминают быстрее глаз.
 >
 > Бесплатно, без регистрации и рекламы: https://pallach8698.github.io/python100/
+> Есть и офлайн-приложение для Windows (12 МБ, ничего устанавливать не надо) — кнопка «Скачать для Windows» прямо на сайте.
 > А если захочется пройти полноценный курс с автопроверкой — вот он, тоже бесплатный, для Windows и Android: https://pallach8698.github.io/python30-site/
 
 *(приложи скриншот сайта или og-image.png из репозитория)*
@@ -75,6 +77,7 @@
 > Игры, приложения, консольные анимации и алгоритмы — каждая программа помещается в один файл и сразу запускается. Метод «learn by typing»: не читаешь код, а набираешь его — и он запоминается.
 >
 > Без регистрации и рекламы: https://pallach8698.github.io/python100/
+> Есть офлайн-приложение для Windows — 12 МБ, работает без интернета.
 > Полный курс на 30 дней (Windows + Android, офлайн): https://pallach8698.github.io/python30-site/
 
 ---
