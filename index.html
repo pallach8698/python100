@@ -110,7 +110,7 @@ h3{font-size:21px;margin-bottom:10px}
 .task-card{position:relative;display:flex;flex-direction:column;gap:8px;padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--panel);text-align:left;transition:background .18s ease,border-color .18s ease,transform .18s ease;cursor:pointer}
 .task-card:hover{background:var(--panel-hover);border-color:var(--faint);transform:translateY(-2px)}
 .task-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.task-num{color:var(--faint);font:700 13px/1 var(--mono)}
+.task-num{color:var(--faint);font-weight:700;font-size:13px;font-family:var(--mono)}
 .task-done{color:var(--success);font-weight:800;font-size:15px}
 .task-card h3{font-size:16px;margin:0;letter-spacing:-.01em}
 .task-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
@@ -128,6 +128,11 @@ h3{font-size:21px;margin-bottom:10px}
 .dialog-desc{color:var(--muted);max-width:70ch}
 .dialog-learn{margin-top:14px;color:var(--faint);font-size:14px}
 .dialog-learn code{color:var(--accent);font-family:var(--mono)}
+.explain{margin-top:26px;border-top:1px solid var(--line);padding-top:20px}
+.explain h4{font-size:14px;color:var(--accent);margin:16px 0 8px;letter-spacing:.06em;text-transform:uppercase}
+.explain h4:first-child{margin-top:0}
+.explain p{color:var(--muted);font-size:15px;max-width:72ch}
+.explain ol{margin:8px 0 0 20px;color:var(--muted);font-size:15px;display:grid;gap:8px}
 .dialog .code-frame{margin-top:22px}
 .dialog-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .dialog-nav{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
@@ -308,6 +313,7 @@ footer a:hover{color:var(--text)}
       <div class="code-bar"><i></i><i></i><i></i><span id="dialog-file"></span></div>
       <div class="code-body" id="dialog-code"></div>
     </div>
+    <div class="explain" id="dialog-explain"></div>
     <div class="dialog-actions">
       <button class="button button-primary" id="dialog-done" type="button"></button>
       <button class="button button-secondary" id="dialog-share" type="button">Ссылка на задачу</button>
@@ -320,6 +326,7 @@ footer a:hover{color:var(--text)}
 </div>
 
 <script src="./src/tasks.js" defer></script>
+<script src="./src/explain.js" defer></script>
 <script src="./src/main.js" defer></script>
 </body>
 </html>
