@@ -140,14 +140,17 @@
     prevBtn.disabled = id <= 1;
     nextBtn.disabled = id >= TASKS.length;
     renderDoneBtn();
+    resetShareBtn();
     overlay.classList.add('open');
     document.body.classList.add('overlay-open');
+    if (history.replaceState) history.replaceState(null, '', '#task-' + id);
     closeBtn.focus();
   }
 
   function closeDialog() {
     overlay.classList.remove('open');
     document.body.classList.remove('overlay-open');
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
     currentId = null;
   }
 
@@ -176,32 +179,49 @@
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeDialog();
   });
 
-  // --- Кнопка «Поделиться» ---
-  var shareBtn = document.getElementById('share-btn');
+  // --- Кнопки «Поделиться» ---
   var SHARE_URL = 'https://pallach8698.github.io/python100/';
-  shareBtn.addEventListener('click', function () {
+
+  function copyText(text, btn, label, copiedLabel) {
     function confirmCopy() {
-      shareBtn.textContent = '✓ Ссылка скопирована';
-      setTimeout(function () { shareBtn.textContent = 'Поделиться ссылкой'; }, 2000);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(SHARE_URL).then(confirmCopy, function () { fallbackCopy(); });
-    } else {
-      fallbackCopy();
+      btn.textContent = copiedLabel;
+      setTimeout(function () { btn.textContent = label; }, 2000);
     }
     function fallbackCopy() {
       var ta = document.createElement('textarea');
-      ta.value = SHARE_URL;
+      ta.value = text;
       document.body.appendChild(ta);
       ta.select();
       try { document.execCommand('copy'); } catch (e) { /* не страшно */ }
       document.body.removeChild(ta);
       confirmCopy();
     }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(confirmCopy, fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+  }
+
+  var shareBtn = document.getElementById('share-btn');
+  shareBtn.addEventListener('click', function () {
+    copyText(SHARE_URL, shareBtn, 'Поделиться ссылкой', '✓ Ссылка скопирована');
+  });
+
+  var dialogShare = document.getElementById('dialog-share');
+  function resetShareBtn() {
+    dialogShare.textContent = 'Ссылка на задачу';
+  }
+  dialogShare.addEventListener('click', function () {
+    copyText(SHARE_URL + '#task-' + currentId, dialogShare, 'Ссылка на задачу', '✓ Ссылка скопирована');
   });
 
   // --- Инициализация ---
   renderCode(document.getElementById('hero-code'), TASKS[0].code, 8);
   renderGrid();
   renderProgress();
+
+  // Прямая ссылка на задачу: #task-25 открывает её карточку
+  var hashMatch = location.hash.match(/^#task-(\d{1,3})$/);
+  if (hashMatch) openDialog(Number(hashMatch[1]));
 })();
