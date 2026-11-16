@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pallach8698.github.io/python100/sitemap.xml
