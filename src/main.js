@@ -176,6 +176,30 @@
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeDialog();
   });
 
+  // --- Кнопка «Поделиться» ---
+  var shareBtn = document.getElementById('share-btn');
+  var SHARE_URL = 'https://pallach8698.github.io/python100/';
+  shareBtn.addEventListener('click', function () {
+    function confirmCopy() {
+      shareBtn.textContent = '✓ Ссылка скопирована';
+      setTimeout(function () { shareBtn.textContent = 'Поделиться ссылкой'; }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(SHARE_URL).then(confirmCopy, function () { fallbackCopy(); });
+    } else {
+      fallbackCopy();
+    }
+    function fallbackCopy() {
+      var ta = document.createElement('textarea');
+      ta.value = SHARE_URL;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) { /* не страшно */ }
+      document.body.removeChild(ta);
+      confirmCopy();
+    }
+  });
+
   // --- Инициализация ---
   renderCode(document.getElementById('hero-code'), TASKS[0].code, 8);
   renderGrid();
