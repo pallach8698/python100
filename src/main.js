@@ -127,6 +127,17 @@
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
+  function renderExplain(id) {
+    var box = document.getElementById('dialog-explain');
+    var e = (window.EXPLAIN || {})[id];
+    if (!e) { box.innerHTML = ''; return; }
+    box.innerHTML =
+      '<h4>Зачем это нужно</h4><p>' + escapeHtml(e.why) + '</p>' +
+      '<h4>Как устроен код, по шагам</h4><ol>' +
+      e.how.map(function (s) { return '<li>' + escapeHtml(s) + '</li>'; }).join('') +
+      '</ol>';
+  }
+
   function openDialog(id) {
     var t = byId(id);
     if (!t) return;
@@ -137,6 +148,7 @@
     document.getElementById('dialog-learn').innerHTML = 'Здесь ты потренируешь: <code>' + escapeHtml(t.learn) + '</code>';
     document.getElementById('dialog-file').textContent = 'zadacha_' + pad(t.id) + '.py';
     renderCode(document.getElementById('dialog-code'), t.code);
+    renderExplain(t.id);
     prevBtn.disabled = id <= 1;
     nextBtn.disabled = id >= TASKS.length;
     renderDoneBtn();
